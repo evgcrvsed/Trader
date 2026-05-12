@@ -1,0 +1,14 @@
+*.log
+/.venv
+/.idea
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+*.db
+
+*.pkl
+*.json
+.env
+/ASF
