@@ -24,11 +24,11 @@ logger = CustomLogger()
 
 def main():
     steam = Steam(
-        username=steam_settings.steam_login,
-        password=steam_settings.steam_password,
-        steamid=steam_settings.steam_steam_id,
-        shared_secret=steam_settings.steam_shared_secret,
-        identity_secret=steam_settings.steam_identity_secret,
+        username=steam_settings.STEAM_LOGIN,
+        password=steam_settings.STEAM_PASSWORD,
+        steamid=steam_settings.STEAM_STEAM_ID,
+        shared_secret=steam_settings.STEAM_SHARED_SECRET,
+        identity_secret=steam_settings.STEAM_IDENTITY_SECRET,
     )
     steam_balance = steam.auth(new=False)
 
