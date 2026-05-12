@@ -5,6 +5,14 @@ git clone https://github.com/evgcrvsed/Trader.git
 ```
 
 ```commandline
+python -m venv venv
+```
+
+```commandline
+venv\Scripts\activate
+```
+
+```commandline
 pip install -r requirements.txt
 ```
 
