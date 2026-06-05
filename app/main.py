@@ -31,6 +31,7 @@ def main():
         identity_secret=steam_settings.STEAM_IDENTITY_SECRET,
     )
     steam_balance = steam.auth(new=False)
+    # print(steam_balance)
 
     Base.metadata.create_all(bind=engine)
 
@@ -42,14 +43,14 @@ def main():
 
     sniper = SniperBot(steam=steam, asf=asf)
     market = MarketBot(steam=steam, asf=asf, ignored_item_service=ignored_item_service)
-    parser = ParserBot(steam=steam, asf=asf, game_for_parsing=304930, count_of_pages=900)
+    parser = ParserBot(steam=steam, asf=asf, game_for_parsing=590830, count_of_pages=11)
     canceler = CancelerBot(steam=steam, asf=asf)
     canceler.process()
-
+    # return
 
     while True:
         try:
-            for bot in [market, sniper, parser]:
+            for bot in [sniper, market, parser]:
                 bot.process()
         except SSLError:
             logger.exception("SSLError")

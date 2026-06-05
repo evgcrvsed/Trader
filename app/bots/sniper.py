@@ -35,6 +35,7 @@ class SniperBot(BaseBot):
             updated = False
             if 'id' not in data[key]:
                 info = self.steam.get_item_id(data[key]['url'])
+                print(info)
                 data[key]['id'] = info['id']
                 data[key]['item_name'] = info['item_name']
 
@@ -72,6 +73,7 @@ class SniperBot(BaseBot):
         name = name.replace('%C3%9C', "Ü")
         name = name.replace('%C3%B1', "ñ")
         name = name.replace('%C3%B2', "ò")
+        name = name.replace('%2C', ", ")
         return name
 
     @staticmethod

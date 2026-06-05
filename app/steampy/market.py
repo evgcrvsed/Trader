@@ -125,8 +125,8 @@ class SteamMarket:
         import re
 
         html_content = response.text
-        # with open("page.html", "w", encoding="utf-8") as file:
-        #     file.write(html_content)
+        with open("page.html", "w", encoding="utf-8") as file:
+            file.write(html_content)
 
         soup = BeautifulSoup(html_content, 'html.parser')
 
@@ -163,6 +163,8 @@ class SteamMarket:
             raise TooManyRequests('You can fetch maximum 20 prices in 60s period')
 
         soup = BeautifulSoup(response.text, "html.parser")
+        with open('page.html', 'w', encoding=response.encoding or 'utf-8') as file:
+            file.write(response.text)
 
         inp = soup.find("input", class_="market_dialog_input market_multi_price")
         value = inp.get("value")
@@ -188,6 +190,8 @@ class SteamMarket:
             raise ApiException(f'There was a problem getting the listings. HTTP code: {response.status_code}')
 
         assets_descriptions = json.loads(text_between(response.text, "var g_rgAssets = ", ";\n"))
+        # with open('page.html', 'w', encoding=response.encoding or 'utf-8') as file:
+        #     file.write(response.text)
         listing_id_to_assets_address = get_listing_id_to_assets_address_from_html(response.text)
         listings = get_market_listings_from_html(response.text)
         listings = merge_items_with_descriptions_from_listing(

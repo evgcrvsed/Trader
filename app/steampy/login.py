@@ -41,6 +41,7 @@ class LoginExecutor:
         self._check_for_captcha(login_response)
         self._update_steam_guard(login_response)
         finalized_response = self._finalize_login()
+        print(finalized_response.text)
         self._perform_redirects(finalized_response.json())
         self.set_sessionid_cookies()
         return self.session

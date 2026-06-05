@@ -138,7 +138,7 @@ class MarketBot(BaseBot):
 
                      time.sleep(5)
 
-                     self.asf.auto_confirm(steam_settings.steam_login)
+                     self.asf.auto_confirm(steam_settings.STEAM_LOGIN)
                  except Exception as e:
                      import traceback
                      traceback.print_exc()

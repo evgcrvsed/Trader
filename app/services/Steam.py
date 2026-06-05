@@ -50,9 +50,14 @@ class Steam:
                 pickle.dump(self.client, f)
 
         try:
+            balance = self.client.get_wallet_balance()
+            # print(balance)
+            # input(self.client.get_my_g_rgWalletInfo())
 
             return self.client.get_my_g_rgWalletInfo()
         except Exception:
+            import traceback
+            traceback.print_exc()
             print('Не получилось авторизоваться, надо перезайти...')
 
             os.remove(file_path)

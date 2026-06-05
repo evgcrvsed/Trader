@@ -120,7 +120,6 @@ class SteamClient:
         decoded_cookie_value = urlparse.unquote(cookie_value)
         access_token_parts = decoded_cookie_value.split('||')
         if len(access_token_parts) < 2:
-            print(decoded_cookie_value)
             raise ValueError('Access token not found in steamLoginSecure cookie')
         access_token = access_token_parts[1]
         return access_token
